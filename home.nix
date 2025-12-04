@@ -1,41 +1,34 @@
 { config, pkgs, inputs, ... }:
 
 {
-	home.username = "daniel";
-	home.homeDirectory = "/home/daniel";
-	
-	home.packages = with pkgs; [
-		neofetch
-		neovim
-		ripgrep
-		fzf
-	];
+  imports = [ ./modules/home ];
+  home.username = "daniel";
+  home.homeDirectory = "/home/daniel";
 
-	xdg.configFile = {
-		nvim.source = "${inputs.nvim-config}";
-        hypr.source = "${inputs.dotfiles}/.config/hypr";
-        waybar.source = "${inputs.dotfiles}/.config/waybar";
-        kitty.source = "${inputs.dotfiles}/.config/kitty";
-	};
+  home.packages = with pkgs; [ neofetch neovim ripgrep fzf ];
 
-    programs.bash = {
-        enable = true;
-        profileExtra = ''
-            if [ -z "$WAYLAND_DISPLAY" ] && [ "$XDG_VTNR" = 1 ]; then
-                exec uwsm start -S hyprland-uwsm.desktop
-            fi
-        '';
-    };
-	
-	programs.git = {
-		enable = true;
-		userName = "Daniel Spiers";
-		userEmail = "danjspiers@gmail.com";
-        extraConfig = {
-            init.defaultBranch = "main";
-        };
-	};
+  xdg.configFile = {
+    nvim.source = "${inputs.nvim-config}";
+    hypr.source = "${inputs.dotfiles}/.config/hypr";
+    waybar.source = "${inputs.dotfiles}/.config/waybar";
+    kitty.source = "${inputs.dotfiles}/.config/kitty";
+  };
 
+  programs.bash = {
+    enable = true;
+    profileExtra = ''
+      if [ -z "$WAYLAND_DISPLAY" ] && [ "$XDG_VTNR" = 1 ]; then
+          exec uwsm start -S hyprland-uwsm.desktop
+      fi
+    '';
+  };
 
-	home.stateVersion = "25.05";
+  programs.git = {
+    enable = true;
+    userName = "Daniel Spiers";
+    userEmail = "danjspiers@gmail.com";
+    extraConfig = { init.defaultBranch = "main"; };
+  };
+
+  home.stateVersion = "25.05";
 }

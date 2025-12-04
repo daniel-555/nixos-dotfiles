@@ -5,13 +5,10 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [
-      ./hardware-configuration.nix
-    ];
+  imports = [ ./hardware-configuration.nix ];
 
-    boot.loader.systemd-boot.enable = true;
-    boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "nixos";
   networking.networkmanager.enable = true;
@@ -24,18 +21,16 @@
     isNormalUser = true;
     description = "daniel";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-    ];
+    packages = with pkgs; [ ];
   };
 
   programs.hyprland = {
-      enable = true;
-      withUWSM = true;
-      xwayland.enable = true;
+    enable = true;
+    withUWSM = true;
+    xwayland.enable = true;
   };
 
   services.getty.autologinUser = "daniel";
-
 
   programs.firefox.enable = true;
 
@@ -43,18 +38,18 @@
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   environment.systemPackages = with pkgs; [
+    neovim
     git
-  	vim
-	wget
-	gcc
+    vim
+    wget
+    gcc
     kitty
     waybar
     hyprpaper
+    wl-clipboard-rs
   ];
 
-  environment.variables = {
-	EDITOR = "nvim";
-  };
+  environment.variables = { EDITOR = "nvim"; };
 
   programs.ssh.startAgent = true;
   programs.ssh.agentTimeout = "1h";
