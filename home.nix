@@ -15,6 +15,14 @@
 		nvim.source = "${inputs.nvim-config}";
 	};
 
+    programs.bash = {
+        enable = true;
+        profileExtra = ''
+            if [ -z "$WAYLAND_DISPLAY" ] && [ "$XDG_VTNR" = 1 ]; then
+                exec uwsm start -S hyprland-uwsm.desktop
+            fi
+        '';
+    };
 	
 	programs.git = {
 		enable = true;
