@@ -55,6 +55,9 @@
 	EDITOR = "nvim";
   };
 
+  programs.ssh.startAgent = true;
+  programs.ssh.agentTimeout = "1h";
+
   system.stateVersion = "25.05";
 
 }

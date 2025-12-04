@@ -13,6 +13,9 @@
 
 	xdg.configFile = {
 		nvim.source = "${inputs.nvim-config}";
+        hypr.source = "${inputs.dotfiles}/.config/hypr";
+        waybar.source = "${inputs.dotfiles}/.config/waybar";
+        kitty.source = "${inputs.dotfiles}/.config/kitty";
 	};
 
     programs.bash = {

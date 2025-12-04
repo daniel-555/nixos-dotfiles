@@ -1,5 +1,22 @@
 {
   "nodes": {
+    "dotfiles": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1761118510,
+        "narHash": "sha256-L5b4DzifpamkS/8kR+6hHJd1Ep0r9QxnK8rd26d32RY=",
+        "ref": "main",
+        "rev": "d81ff89fef0949a48c88b7aa9663797def6e8039",
+        "revCount": 34,
+        "type": "git",
+        "url": "ssh://git@github.com/daniel-555/dotfiles"
+      },
+      "original": {
+        "ref": "main",
+        "type": "git",
+        "url": "ssh://git@github.com/daniel-555/dotfiles"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -55,6 +72,7 @@
     },
     "root": {
       "inputs": {
+        "dotfiles": "dotfiles",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
         "nvim-config": "nvim-config"
