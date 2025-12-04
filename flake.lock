@@ -3,11 +3,11 @@
     "dotfiles": {
       "flake": false,
       "locked": {
-        "lastModified": 1761118510,
-        "narHash": "sha256-L5b4DzifpamkS/8kR+6hHJd1Ep0r9QxnK8rd26d32RY=",
+        "lastModified": 1764873659,
+        "narHash": "sha256-WDpgLbxwlprIJU8MDKgQoMQHidzGXsR1rMl4QrChIXc=",
         "ref": "main",
-        "rev": "d81ff89fef0949a48c88b7aa9663797def6e8039",
-        "revCount": 34,
+        "rev": "03d3213cd47330d783d1f23dda5562bdfbca8fbb",
+        "revCount": 35,
         "type": "git",
         "url": "ssh://git@github.com/daniel-555/dotfiles"
       },
