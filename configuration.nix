@@ -21,16 +21,25 @@
     isNormalUser = true;
     description = "daniel";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [ ];
+    packages = [ ];
   };
 
-  programs.hyprland = {
+  programs.hyprland.enable = true;
+
+  # services.getty.autologinUser = "daniel";
+  services.displayManager.sddm = {
     enable = true;
-    withUWSM = true;
-    xwayland.enable = true;
+    wayland.enable = true;
+    # settings.X11 = {
+    #   XkbLayout = "us";
+    #   XkbOptions = "caps:escape";
+    # };
   };
 
-  services.getty.autologinUser = "daniel";
+  # systemd.services.display-manager.environment = {
+  #   XKB_DEFAULT_LAYOUT = "us";
+  #   XKB_DEFAULT_OPTIONS = "caps:escape";
+  # };
 
   programs.firefox.enable = true;
 

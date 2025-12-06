@@ -9,18 +9,37 @@
 
   xdg.configFile = {
     nvim.source = "${inputs.nvim-config}";
-    hypr.source = "${inputs.dotfiles}/.config/hypr";
+    # hypr.source = "${inputs.dotfiles}/.config/hypr";
     waybar.source = "${inputs.dotfiles}/.config/waybar";
     kitty.source = "${inputs.dotfiles}/.config/kitty";
   };
 
-  programs.bash = {
+  wayland.windowManager.hyprland = {
     enable = true;
-    profileExtra = ''
-      if [ -z "$WAYLAND_DISPLAY" ] && [ "$XDG_VTNR" = 1 ]; then
-          exec uwsm start -S hyprland-uwsm.desktop
-      fi
-    '';
+    xwayland.enable = true;
+    package = null;
+    portalPackage = null;
+    systemd = {
+      enable = true;
+      enableXdgAutostart = true;
+      variables = [ "--all" ];
+    };
+    settings = {
+      "$terminal" = "kitty";
+      "$mod" = "SUPER";
+      bind = [ "$mod, Q, exec, $terminal" ];
+      input = {
+        kb_layout = "us";
+        kb_options = [ "caps:swapescape" ];
+        numlock_by_default = true;
+        repeat_delay = 300;
+        touchpad = {
+          natural_scroll = true;
+          disable_while_typing = true;
+          scroll_factor = 0.8;
+        };
+      };
+    };
   };
 
   programs.git = {
