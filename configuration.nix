@@ -11,8 +11,14 @@
     inputs.stylix.nixosModules.stylix
   ];
 
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot = {
+    loader = {
+      systemd-boot.enable = true;
+      efi.canTouchEfiVariables = true;
+    };
+
+    plymouth.enable = true;
+  };
 
   networking.hostName = "nixos";
   networking.networkmanager.enable = true;
@@ -32,6 +38,10 @@
 
   stylix = {
     enable = true;
+    targets = {
+      console.enable = false;
+      plymouth.enable = false;
+    };
     image = ./wallpapers/Rainnight.jpg;
   };
 
