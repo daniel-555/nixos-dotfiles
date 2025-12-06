@@ -63,6 +63,6 @@
   programs.ssh.startAgent = true;
   programs.ssh.agentTimeout = "1h";
 
-  system.stateVersion = "25.05";
+  system.stateVersion = "25.11";
 
 }

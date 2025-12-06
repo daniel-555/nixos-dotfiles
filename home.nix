@@ -15,10 +15,15 @@
 
   programs.git = {
     enable = true;
-    userName = "Daniel Spiers";
-    userEmail = "danjspiers@gmail.com";
-    extraConfig = { init.defaultBranch = "main"; };
+
+    settings = {
+      user = {
+        name = "Daniel Spiers";
+        email = "danjspiers@gmail.com";
+        init.defaultBranch = "main";
+      };
+    };
   };
 
-  home.stateVersion = "25.05";
+  home.stateVersion = "25.11";
 }

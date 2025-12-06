@@ -10,6 +10,7 @@
       enableXdgAutostart = true;
       variables = [ "--all" ];
     };
+
     settings = {
       general = {
         "$mod" = "ALT";
@@ -56,6 +57,8 @@
           scroll_factor = 0.8;
         };
       };
+
+      monitor = [ ",preferred,auto,auto" ];
     };
   };
 }
