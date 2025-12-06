@@ -20,8 +20,9 @@
       user = {
         name = "Daniel Spiers";
         email = "danjspiers@gmail.com";
-        init.defaultBranch = "main";
       };
+
+      init.defaultBranch = "main";
     };
   };
 

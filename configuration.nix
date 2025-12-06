@@ -2,10 +2,14 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ inputs, pkgs, ... }:
 
 {
-  imports = [ ./hardware-configuration.nix ];
+  imports = [
+    ./hardware-configuration.nix
+    ./modules/core
+    inputs.stylix.nixosModules.stylix
+  ];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -26,15 +30,12 @@
 
   programs.hyprland.enable = true;
 
-  # services.getty.autologinUser = "daniel";
-  services.displayManager.sddm = {
+  stylix = {
     enable = true;
-    wayland.enable = true;
-    # settings.X11 = {
-    #   XkbLayout = "us";
-    #   XkbOptions = "caps:escape";
-    # };
+    image = ./wallpapers/Rainnight.jpg;
   };
+
+  # services.getty.autologinUser = "daniel";
 
   # systemd.services.display-manager.environment = {
   #   XKB_DEFAULT_LAYOUT = "us";
