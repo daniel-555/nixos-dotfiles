@@ -15,10 +15,10 @@
       flake = false;
     };
 
-    dotfiles = {
-      url = "git+ssh://git@github.com/daniel-555/dotfiles?ref=main";
-      flake = false;
-    };
+    # dotfiles = {
+    #   url = "git+ssh://git@github.com/daniel-555/dotfiles?ref=main";
+    #   flake = false;
+    # };
   };
 
   outputs = { self, nixpkgs, home-manager, nvim-config, ... }@inputs: {

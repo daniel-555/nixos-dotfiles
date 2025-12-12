@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, inputs, lib, ... }:
 
 {
   imports = [ ./modules/home ];
@@ -9,8 +9,8 @@
 
   xdg.configFile = {
     nvim.source = "${inputs.nvim-config}";
-    waybar.source = "${inputs.dotfiles}/.config/waybar";
-    kitty.source = "${inputs.dotfiles}/.config/kitty";
+    # waybar.source = "${inputs.dotfiles}/.config/waybar";
+    kitty.source = ./kitty-temp-conf;
   };
 
   programs.git = {
