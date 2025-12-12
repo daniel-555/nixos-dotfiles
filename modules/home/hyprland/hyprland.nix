@@ -58,7 +58,7 @@
         };
       };
 
-      monitor = [ "eDP-1, preferred, 0x0, 1" ",preferred,auto,auto" ];
+      monitor = [ "eDP-1, preferred, 0x0, 1" "HDMI-A-1, 1920x1080@240, auto, auto" ];
     };
   };
 }
