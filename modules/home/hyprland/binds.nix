@@ -1,7 +1,8 @@
 { ... }: {
   wayland.windowManager.hyprland.settings = {
     bind = [
-      "$mod, Return, exec, kitty"
+      "$mod, Return, exec, $terminal"
+      "$mod, B, exec, $browser"
       "$mod SHIFT, Q, killactive"
       "$mod, F, fullscreen"
       "$mod SHIFT, F, togglefloating"

@@ -15,6 +15,7 @@
       general = {
         "$mod" = "ALT";
         "$terminal" = "kitty";
+        "$browser" = "firefox";
         layout = "dwindle";
         gaps_in = 6;
         gaps_out = 8;
