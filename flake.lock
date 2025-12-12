@@ -68,23 +68,6 @@
         "type": "github"
       }
     },
-    "dotfiles": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1764884822,
-        "narHash": "sha256-5otKZZwFbYRaPCqQV/X00YAhIhoIW+Rv/AYiwZuiiqA=",
-        "ref": "main",
-        "rev": "7c15f422e04438e9b402f28c2bcb777a8208b94d",
-        "revCount": 37,
-        "type": "git",
-        "url": "ssh://git@github.com/daniel-555/dotfiles"
-      },
-      "original": {
-        "ref": "main",
-        "type": "git",
-        "url": "ssh://git@github.com/daniel-555/dotfiles"
-      }
-    },
     "firefox-gnome-theme": {
       "flake": false,
       "locked": {
@@ -253,7 +236,6 @@
     },
     "root": {
       "inputs": {
-        "dotfiles": "dotfiles",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
         "nvim-config": "nvim-config",

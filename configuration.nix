@@ -2,14 +2,11 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ inputs, pkgs, ... }:
+{ inputs, host, pkgs, ... }:
 
 {
-  imports = [
-    ./hardware-configuration.nix
-    ./modules/core
-    inputs.stylix.nixosModules.stylix
-  ];
+  imports =
+    [ ./hosts/${host} ./modules/core inputs.stylix.nixosModules.stylix ];
 
   boot = {
     loader = {
@@ -20,7 +17,7 @@
     plymouth.enable = true;
   };
 
-  networking.hostName = "nixos";
+  networking.hostName = "${host}";
   networking.networkmanager.enable = true;
 
   time.timeZone = "Europe/London";
@@ -35,8 +32,8 @@
   };
 
   programs.hyprland = {
-      enable = true;
-      withUWSM = true;
+    enable = true;
+    withUWSM = true;
   };
 
   stylix = {
