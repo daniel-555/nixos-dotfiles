@@ -1,1 +1,1 @@
-{ ... }: { imports = [ ./nvim.nix ./hyprland ]; }
+{ ... }: { imports = [ ./nvim.nix ./hyprland ./waybar.nix ]; }
