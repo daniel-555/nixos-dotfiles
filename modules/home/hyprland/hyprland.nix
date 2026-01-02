@@ -19,7 +19,12 @@
         resize_on_border = true;
       };
 
-      cursor = { no_hardware_cursors = 0; };
+      cursor = {
+        no_hardware_cursors = 2;
+        enable_hyprcursor = false;
+        warp_on_change_workspace = 2;
+        no_warps = true;
+      };
 
       dwindle = {
         pseudotile = true;
@@ -57,7 +62,7 @@
         };
       };
 
-      monitor = [ "eDP-1, preferred, 0x0, 1" ", preferred, auto, auto" ];
+      monitor = [ "eDP-1, preferred, 0x0, 1" ", highrr, auto, auto" ];
     };
   };
 }

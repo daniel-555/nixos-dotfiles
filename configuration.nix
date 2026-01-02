@@ -14,7 +14,7 @@
       efi.canTouchEfiVariables = true;
     };
 
-    # plymouth.enable = true;
+    plymouth.enable = true;
   };
 
   networking.hostName = "${host}";
@@ -39,11 +39,65 @@
 
   stylix = {
     enable = true;
+
+    opacity.terminal = 0.8;
+
+    cursor = {
+      package = pkgs.bibata-cursors;
+      name = "Bibata-Modern-Ice";
+      size = 24;
+    };
+
+    fonts = {
+      monospace = {
+        package = pkgs.nerd-fonts.jetbrains-mono;
+        name = "JetBrains Mono";
+      };
+      sansSerif = {
+        package = pkgs.montserrat;
+        name = "Montserrat";
+      };
+      serif = {
+        package = pkgs.montserrat;
+        name = "Montserrat";
+      };
+    };
+
+    polarity = "dark";
     targets = {
       console.enable = false;
       plymouth.enable = false;
     };
-    image = ./wallpapers/Rainnight.jpg;
+    image = ./wallpapers/retrowave-sunset.jpg;
+  };
+
+  fonts = {
+    fontconfig.enable = true;
+    packages = with pkgs; [
+      dejavu_fonts
+      fira-code
+      fira-code-symbols
+      font-awesome
+      hackgen-nf-font
+      ibm-plex
+      inter
+      jetbrains-mono
+      material-icons
+      maple-mono.NF
+      minecraftia
+      nerd-fonts.im-writing
+      nerd-fonts.blex-mono
+      noto-fonts
+      noto-fonts-color-emoji
+      noto-fonts-cjk-sans
+      noto-fonts-cjk-serif
+      noto-fonts-monochrome-emoji
+      powerline-fonts
+      roboto
+      roboto-mono
+      symbola
+      terminus_font
+    ];
   };
 
   # services.getty.autologinUser = "daniel";
