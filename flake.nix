@@ -26,7 +26,10 @@
       mkConfig = host:
         nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          specialArgs = { inherit inputs; inherit host; };
+          specialArgs = {
+            inherit inputs;
+            inherit host;
+          };
           modules = [
             ./configuration.nix
             home-manager.nixosModules.home-manager

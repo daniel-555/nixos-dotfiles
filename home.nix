@@ -13,6 +13,8 @@
     kitty.source = ./kitty-temp-conf;
   };
 
+  services.kanshi.enable = true;
+
   programs.git = {
     enable = true;
 

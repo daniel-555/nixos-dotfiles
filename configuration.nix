@@ -14,7 +14,7 @@
       efi.canTouchEfiVariables = true;
     };
 
-    plymouth.enable = true;
+    # plymouth.enable = true;
   };
 
   networking.hostName = "${host}";
@@ -34,6 +34,7 @@
   programs.hyprland = {
     enable = true;
     withUWSM = true;
+    xwayland.enable = true;
   };
 
   stylix = {
@@ -66,7 +67,7 @@
     kitty
     waybar
     hyprpaper
-    wl-clipboard-rs
+    brave
   ];
 
   environment.variables = { EDITOR = "nvim"; };

@@ -5,23 +5,21 @@
     xwayland.enable = true;
     package = null;
     portalPackage = null;
-    systemd = {
-      enable = true;
-      enableXdgAutostart = true;
-      variables = [ "--all" ];
-    };
+    systemd.enable = false;
 
     settings = {
       general = {
         "$mod" = "ALT";
         "$terminal" = "kitty";
-        "$browser" = "firefox";
+        "$browser" = "brave";
         layout = "dwindle";
         gaps_in = 6;
         gaps_out = 8;
         border_size = 2;
         resize_on_border = true;
       };
+
+      cursor = { no_hardware_cursors = 0; };
 
       dwindle = {
         pseudotile = true;
@@ -59,7 +57,7 @@
         };
       };
 
-      monitor = [ "eDP-1, preferred, 0x0, 1" "HDMI-A-1, 1920x1080@240, auto, auto" ];
+      monitor = [ "eDP-1, preferred, 0x0, 1" ", preferred, auto, auto" ];
     };
   };
 }
