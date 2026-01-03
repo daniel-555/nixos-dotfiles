@@ -2,6 +2,9 @@
 let betterTransition = "all 0.3s cubic-bezier(.55,-0.68,.48,1.682)";
 in {
   # Configure & Theme Waybar
+
+  home.packages = with pkgs; [ pavucontrol ];
+
   programs.waybar = {
     enable = true;
     systemd.enable = true;
@@ -11,22 +14,8 @@ in {
       layer = "top";
       position = "top";
       modules-center = [ "hyprland/workspaces" ];
-      modules-left = [
-        "custom/startmenu"
-        "hyprland/window"
-        "pulseaudio"
-        "cpu"
-        "memory"
-        "idle_inhibitor"
-      ];
-      modules-right = [
-        "custom/hyprbindings"
-        "custom/notification"
-        "custom/exit"
-        "battery"
-        "tray"
-        "clock"
-      ];
+      modules-left = [ "custom/startmenu" "pulseaudio" "cpu" "memory" ];
+      modules-right = [ "battery" "tray" "network" "clock" ];
 
       "hyprland/workspaces" = {
         format = "{name}";
@@ -67,7 +56,7 @@ in {
       "network" = {
         format-icons = [ "󰤯" "󰤟" "󰤢" "󰤥" "󰤨" ];
         format-ethernet = " {bandwidthDownOctets}";
-        format-wifi = "{icon} {signalStrength}%";
+        format-wifi = "{icon} {signalStrength}% {ifname} {ipaddr}";
         format-disconnected = "󰤮";
         tooltip = false;
       };

@@ -1,1 +1,1 @@
-{ ... }: { imports = [ ./sddm.nix ]; }
+{ ... }: { imports = [ ./sddm.nix ./stylix.nix ./fonts.nix ]; }
