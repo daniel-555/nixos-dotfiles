@@ -4,6 +4,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
     stylix.url = "github:danth/stylix/release-25.11";
+    nixvim.url = "github:nix-community/nixvim/nixos-25.11";
 
     home-manager = {
       url = "github:nix-community/home-manager/release-25.11";
@@ -14,6 +15,7 @@
       url = "github:daniel-555/nvim-configs";
       flake = false;
     };
+    
 
     # dotfiles = {
     #   url = "git+ssh://git@github.com/daniel-555/dotfiles?ref=main";

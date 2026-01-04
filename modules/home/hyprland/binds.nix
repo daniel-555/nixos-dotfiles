@@ -1,4 +1,5 @@
-{ ... }: {
+{ ... }:
+{
   wayland.windowManager.hyprland.settings = {
     bind = [
       "$mod, Return, exec, $terminal"
@@ -8,11 +9,6 @@
       "$mod, F, fullscreen"
       "$mod SHIFT, F, togglefloating"
       "$mod SHIFT, X, exit"
-
-      "$mod SHIFT, H, movewindow, l"
-      "$mod SHIFT, L, movewindow, r"
-      "$mod SHIFT, K, movewindow, u"
-      "$mod SHIFT, J, movewindow, d"
 
       "$mod SUPER, H, swapwindow, l"
       "$mod SUPER, L, swapwindow, r"
@@ -50,6 +46,9 @@
       "SUPER, L, exec, hyprlock"
     ];
 
-    bindm = [ "$mod, mouse:272, movewindow" "$mod, mouse:273, resizewindow" ];
+    bindm = [
+      "$mod, mouse:272, movewindow"
+      "$mod, mouse:273, resizewindow"
+    ];
   };
 }

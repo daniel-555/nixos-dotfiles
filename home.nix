@@ -5,21 +5,10 @@
   home.username = "daniel";
   home.homeDirectory = "/home/daniel";
 
-  home.packages = with pkgs; [
-    neofetch
-    neovim
-    ripgrep
-    fzf
-    font-awesome
-  ];
+  home.packages = with pkgs; [ neofetch ripgrep fzf font-awesome ]; # neovim
 
-  # fonts.fontconfig.enable = true;
+  fonts.fontconfig.enable = true;
 
-  xdg.configFile = {
-    nvim.source = "${inputs.nvim-config}";
-    # waybar.source = "${inputs.dotfiles}/.config/waybar";
-    # kitty.source = ./kitty-temp-conf;
-  };
 
   services.kanshi.enable = true;
 
@@ -30,7 +19,7 @@
       confirm_os_window_close = 0;
       enable_audio_bell = "no";
       cursor_trail = 1;
-      font_size = 16;
+      font_size = 15;
     };
   };
 
