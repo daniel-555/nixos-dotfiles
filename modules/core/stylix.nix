@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   stylix = {
     enable = true;
 
@@ -33,6 +34,7 @@
     targets = {
       console.enable = false;
       plymouth.enable = false;
+      qt.enable = false;
     };
     image = ../../wallpapers/retrowave-sunset.jpg;
   };

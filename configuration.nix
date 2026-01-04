@@ -1,12 +1,16 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ inputs, host, pkgs, ... }:
+{
+  inputs,
+  host,
+  pkgs,
+  ...
+}:
 
 {
-  imports =
-    [ ./hosts/${host} ./modules/core inputs.stylix.nixosModules.stylix ];
+  imports = [
+    ./hosts/${host}
+    ./modules/core
+    inputs.stylix.nixosModules.stylix
+  ];
 
   boot = {
     loader = {
@@ -15,6 +19,13 @@
     };
 
     plymouth.enable = true;
+  };
+
+  virtualisation.virtualbox = {
+    host = {
+      enable = true;
+      enableExtensionPack = true;
+    };
   };
 
   networking.hostName = "${host}";
@@ -27,7 +38,10 @@
   users.users.daniel = {
     isNormalUser = true;
     description = "daniel";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
     packages = [ ];
   };
 
@@ -48,7 +62,10 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
   environment.systemPackages = with pkgs; [
     # neovim
     git
@@ -60,7 +77,9 @@
     brave
   ];
 
-  environment.variables = { EDITOR = "nvim"; };
+  environment.variables = {
+    EDITOR = "nvim";
+  };
 
   programs.ssh.startAgent = true;
   programs.ssh.agentTimeout = "1h";
