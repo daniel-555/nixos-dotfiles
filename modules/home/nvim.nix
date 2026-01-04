@@ -1,3 +1,8 @@
-{ pkgs, ... }: {
-  home.packages = with pkgs; [ cargo luajitPackages.luarocks-nix lua ];
+{ pkgs, ... }:
+{
+  home.packages = with pkgs; [
+    cargo
+    luajitPackages.luarocks-nix
+    lua
+  ];
 }

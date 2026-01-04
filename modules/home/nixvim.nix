@@ -83,6 +83,13 @@
 
       treesitter.enable = true;
 
+      # harpoon = {
+      #   enable = true;
+      #   settings = {
+      #     save_on_toggle = true;
+      #   };
+      # };
+
       gitsigns.enable = true;
       diffview.enable = true;
 
@@ -276,6 +283,39 @@
         action = "\"+p";
         options.desc = "Paste from global clipboard";
       }
+
+      # # Harpoon
+      # {
+      #   mode = [ "n" ];
+      #   key = "<leader>a";
+      #   action = ":lua require('harpoon').list().add()";
+      # }
+      # {
+      #   mode = [ "n" ];
+      #   key = "<C-e>";
+      #   action = " :lua require('harpoon.ui').toggle_quick_menu(require('harpoon').list())";
+      # }
+      # {
+      #   mode = [ "n" ];
+      #   key = "<C-h>";
+      #   action = " :lua require('harpoon').list().select(1)";
+      # }
+      # {
+      #   mode = [ "n" ];
+      #   key = "<C-t>";
+      #   action = " :lua require('harpoon').list().select(2)";
+      # }
+      # {
+      #   mode = [ "n" ];
+      #   key = "<C-n>";
+      #   action = " :lua require('harpoon').list().select(3)";
+      # }
+      # {
+      #   mode = [ "n" ];
+      #   key = "<C-s>";
+      #   action = " :lua require('harpoon').list().select(4)";
+      # }
+      #
     ];
 
     extraConfigLua = ''
