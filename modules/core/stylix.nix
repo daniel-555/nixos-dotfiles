@@ -2,7 +2,11 @@
   stylix = {
     enable = true;
 
-    opacity.terminal = 0.8;
+    opacity = {
+      terminal = 0.8;
+      applications = 0.9;
+      desktop = 0.9;
+    };
 
     cursor = {
       package = pkgs.bibata-cursors;

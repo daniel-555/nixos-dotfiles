@@ -55,7 +55,6 @@
     vim
     wget
     gcc
-    kitty
     waybar
     hyprpaper
     brave

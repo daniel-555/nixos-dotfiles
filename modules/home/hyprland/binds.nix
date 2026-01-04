@@ -3,6 +3,7 @@
     bind = [
       "$mod, Return, exec, $terminal"
       "$mod, B, exec, $browser"
+      "$mod SHIFT, Return, exec, $programRunner"
       "$mod SHIFT, Q, killactive"
       "$mod, F, fullscreen"
       "$mod SHIFT, F, togglefloating"

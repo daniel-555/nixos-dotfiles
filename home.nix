@@ -32,7 +32,6 @@
       cursor_trail = 1;
       font_size = 16;
     };
-    extraConfig = "";
   };
 
   programs.git = {
