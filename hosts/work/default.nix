@@ -1,8 +1,15 @@
-{ config, ... }: {
+{ config, pkgs, ... }:
+{
   imports = [ ./hardware-configuration.nix ];
 
   hardware.graphics.enable = true;
-  services.xserver.videoDrivers = [ "nvidia" ];
+  services.xserver.videoDrivers = [
+    "nvidia"
+    "displaylink"
+    "modesetting"
+  ];
+
+  environment.systemPackages = with pkgs; [ displaylink ];
 
   hardware.nvidia = {
     modesetting.enable = true;

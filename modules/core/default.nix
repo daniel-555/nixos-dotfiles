@@ -1,1 +1,8 @@
-{ ... }: { imports = [ ./sddm.nix ./stylix.nix ./fonts.nix ]; }
+{ ... }:
+{
+  imports = [
+    ./sddm.nix
+    ./stylix.nix
+    ./fonts.nix
+  ];
+}

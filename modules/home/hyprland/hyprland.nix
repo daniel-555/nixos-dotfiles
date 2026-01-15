@@ -1,5 +1,9 @@
-{ pkgs, ... }: {
-  home.packages = with pkgs; [ wl-clipboard hyprpicker ];
+{ pkgs, ... }:
+{
+  home.packages = with pkgs; [
+    wl-clipboard
+    hyprpicker
+  ];
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
@@ -49,7 +53,9 @@
         };
       };
 
-      xwayland = { force_zero_scaling = true; };
+      xwayland = {
+        force_zero_scaling = true;
+      };
 
       input = {
         kb_layout = "us";
@@ -63,7 +69,10 @@
         };
       };
 
-      monitor = [ "eDP-1, preferred, 0x0, 1" ", highrr, auto, auto" ];
+      monitor = [
+        "eDP-1, preferred, 0x0, 1"
+        ", preferred, auto, auto"
+      ];
     };
   };
 }

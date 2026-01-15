@@ -1,4 +1,8 @@
-{ inputs, ... }:
+{
+  inputs,
+  pkgs,
+  ...
+}:
 {
   imports = [ inputs.nixvim.homeModules.nixvim ];
 
@@ -116,6 +120,7 @@
       };
 
       trouble.enable = true;
+      todo-comments.enable = true;
 
       markdown-preview.enable = true;
 
@@ -146,14 +151,14 @@
 
           snippets.preset = "luasnip";
           fuzzy.implementation = "prefer_rust_with_warning";
-          signature.enabled = true;
+          # signature.enabled = true;
         };
       };
 
       luasnip.enable = true;
       friendly-snippets.enable = true;
 
-      lsp-signature.enable = true;
+      # lsp-signature.enable = true;
 
       lsp = {
         enable = true;
@@ -165,6 +170,7 @@
           html.enable = true;
           cssls.enable = true;
           clangd.enable = true;
+          emmet_language_server.enable = true;
         };
 
         keymaps = {
@@ -189,6 +195,7 @@
             html = [ "prettierd" ];
             markdown = [ "prettierd" ];
             sh = [ "shfmt" ];
+            python = [ "black" ];
           };
           format_on_save = {
             lsp_fallback = true;
@@ -232,6 +239,12 @@
         mode = [ "n" ];
         action = "<cmd>Trouble diagnostics toggle<cr>";
         options.desc = "Toggle diagnostics list";
+      }
+      {
+        key = "<leader>dd";
+        mode = [ "n" ];
+        action = "<cmd>Trouble todo toggle<cr>";
+        options.desc = "Toggle todo list";
       }
 
       # Utilities
@@ -348,4 +361,10 @@
       }
     '';
   };
+
+  home.packages = with pkgs; [
+    prettierd
+    shfmt
+    black
+  ];
 }

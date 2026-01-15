@@ -2,6 +2,7 @@
   inputs,
   host,
   pkgs,
+  config,
   ...
 }:
 
@@ -41,8 +42,17 @@
     extraGroups = [
       "networkmanager"
       "wheel"
+      "vboxusers"
     ];
     packages = [ ];
+    shell = pkgs.zsh;
+  };
+
+  boot = {
+    extraModulePackages = [ config.boot.kernelPackages.evdi ];
+    initrd = {
+      kernelModules = [ "evdi" ];
+    };
   };
 
   programs.hyprland = {
@@ -75,6 +85,9 @@
     waybar
     hyprpaper
     brave
+    obsidian
+    python3
+    teams-for-linux
   ];
 
   environment.variables = {
