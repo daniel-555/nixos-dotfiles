@@ -1,7 +1,4 @@
 {
-  profile,
-  pkgs,
-  lib,
   ...
 }:
 {
@@ -51,5 +48,14 @@
 
   programs.starship = {
     enable = true;
+
+    settings = {
+      os = {
+        disabled = false;
+        symbols = {
+          NixOS = " ";
+        };
+      };
+    };
   };
 }
