@@ -7,6 +7,6 @@
     ./stylix.nix
     ./scripts
     ./waybar.nix
-    ./zsh.nix
+    ./zsh
   ]; # ./nvim.nix
 }

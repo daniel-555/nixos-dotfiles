@@ -36,16 +36,18 @@
 
   i18n.defaultLocale = "en_GB.UTF-8";
 
-  users.users.daniel = {
-    isNormalUser = true;
-    description = "daniel";
-    extraGroups = [
-      "networkmanager"
-      "wheel"
-      "vboxusers"
-    ];
-    packages = [ ];
-    shell = pkgs.zsh;
+  users = {
+    defaultUserShell = pkgs.zsh;
+    users.daniel = {
+      isNormalUser = true;
+      description = "daniel";
+      extraGroups = [
+        "networkmanager"
+        "wheel"
+        "vboxusers"
+      ];
+      packages = [ ];
+    };
   };
 
   boot = {
@@ -60,6 +62,8 @@
     withUWSM = true;
     xwayland.enable = true;
   };
+
+  programs.zsh.enable = true;
 
   # services.getty.autologinUser = "daniel";
 
@@ -88,6 +92,7 @@
     obsidian
     python3
     teams-for-linux
+    zsh
   ];
 
   environment.variables = {
