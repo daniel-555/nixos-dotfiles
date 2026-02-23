@@ -9,7 +9,14 @@
     "modesetting"
   ];
 
-  environment.systemPackages = with pkgs; [ displaylink ];
+  environment.systemPackages = with pkgs; [
+    displaylink
+    libreoffice-qt
+    gimp
+    obs-studio
+    scrcpy
+    blender
+  ];
 
   hardware.nvidia = {
     modesetting.enable = true;

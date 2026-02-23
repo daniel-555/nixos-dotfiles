@@ -45,6 +45,7 @@
         "networkmanager"
         "wheel"
         "vboxusers"
+        "vboxsf"
       ];
       packages = [ ];
     };
@@ -74,6 +75,15 @@
 
   programs.firefox.enable = true;
 
+  programs.nix-ld = {
+    enable = true;
+    libraries = with pkgs; [
+      stdenv.cc.cc.lib
+      zlib
+      libgcc
+    ];
+  };
+
   nixpkgs.config.allowUnfree = true;
 
   nix.settings.experimental-features = [
@@ -93,6 +103,8 @@
     python3
     teams-for-linux
     zsh
+    drawio
+    gnumake
   ];
 
   environment.variables = {
