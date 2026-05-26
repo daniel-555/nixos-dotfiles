@@ -16,7 +16,10 @@
     obs-studio
     scrcpy
     blender
+    android-tools
   ];
+
+  services.flatpak.enable = true;
 
   hardware.nvidia = {
     modesetting.enable = true;

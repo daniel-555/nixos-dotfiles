@@ -29,6 +29,12 @@
     };
   };
 
+  virtualisation.docker = {
+    enable = true;
+  };
+
+  services.usbmuxd.enable = true;
+
   networking.hostName = "${host}";
   networking.networkmanager.enable = true;
 
@@ -42,6 +48,7 @@
       isNormalUser = true;
       description = "daniel";
       extraGroups = [
+        "docker"
         "networkmanager"
         "wheel"
         "vboxusers"
@@ -91,11 +98,18 @@
     "flakes"
   ];
   environment.systemPackages = with pkgs; [
-    # neovim
+    # utils
     git
     vim
     wget
+
+    # c / c++
     gcc
+    libgcc
+    gnumake
+    cmake
+    extra-cmake-modules
+
     waybar
     hyprpaper
     brave
@@ -104,11 +118,14 @@
     teams-for-linux
     zsh
     drawio
-    gnumake
+    libimobiledevice
+    ifuse
   ];
 
-  environment.variables = {
-    EDITOR = "nvim";
+  environment = {
+    variables = {
+      EDITOR = "nvim";
+    };
   };
 
   programs.ssh.startAgent = true;
