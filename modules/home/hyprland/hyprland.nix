@@ -3,6 +3,7 @@
   home.packages = with pkgs; [
     wl-clipboard
     hyprpicker
+    hyprmon
   ];
   wayland.windowManager.hyprland = {
     enable = true;
