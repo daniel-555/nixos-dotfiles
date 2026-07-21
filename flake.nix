@@ -15,7 +15,6 @@
       url = "github:daniel-555/nvim-configs";
       flake = false;
     };
-    
 
     # dotfiles = {
     #   url = "git+ssh://git@github.com/daniel-555/dotfiles?ref=main";
@@ -23,9 +22,17 @@
     # };
   };
 
-  outputs = { self, nixpkgs, home-manager, nvim-config, ... }@inputs:
+  outputs =
+    {
+      self,
+      nixpkgs,
+      home-manager,
+      nvim-config,
+      ...
+    }@inputs:
     let
-      mkConfig = host:
+      mkConfig =
+        host:
         nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           specialArgs = {
@@ -48,7 +55,8 @@
           ];
         };
 
-    in {
+    in
+    {
       nixosConfigurations = {
         home = mkConfig "home";
         work = mkConfig "work";

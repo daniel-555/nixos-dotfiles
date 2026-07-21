@@ -22,16 +22,16 @@
     plymouth.enable = true;
   };
 
-  virtualisation.virtualbox = {
-    host = {
-      enable = true;
-      enableExtensionPack = true;
-    };
-  };
+  # virtualisation.virtualbox = {
+  #   host = {
+  #     enable = true;
+  #     enableExtensionPack = true;
+  #   };
+  # };
 
-  virtualisation.docker = {
-    enable = true;
-  };
+  # virtualisation.docker = {
+  #   enable = true;
+  # };
 
   services.usbmuxd.enable = true;
 
@@ -65,6 +65,15 @@
     };
   };
 
+  hardware.bluetooth = {
+    enable = true;
+    settings = {
+      General = {
+        ControllerMode = "bredr";
+      };
+    };
+  };
+
   programs.hyprland = {
     enable = true;
     withUWSM = true;
@@ -85,7 +94,6 @@
   programs.nix-ld = {
     enable = true;
     libraries = with pkgs; [
-      stdenv.cc.cc.lib
       zlib
       libgcc
     ];
@@ -108,7 +116,6 @@
     libgcc
     gnumake
     cmake
-    extra-cmake-modules
 
     waybar
     hyprpaper

@@ -1,14 +1,24 @@
-{ config, pkgs, inputs, lib, ... }:
+{
+  config,
+  pkgs,
+  inputs,
+  lib,
+  ...
+}:
 
 {
   imports = [ ./modules/home ];
   home.username = "daniel";
   home.homeDirectory = "/home/daniel";
 
-  home.packages = with pkgs; [ neofetch ripgrep fzf font-awesome ]; # neovim
+  home.packages = with pkgs; [
+    fastfetch
+    ripgrep
+    fzf
+    font-awesome
+  ]; # neovim
 
   fonts.fontconfig.enable = true;
-
 
   services.kanshi.enable = true;
 
@@ -27,11 +37,6 @@
     enable = true;
 
     settings = {
-      user = {
-        name = "Daniel Spiers";
-        email = "danjspiers@gmail.com";
-      };
-
       init.defaultBranch = "main";
     };
   };
