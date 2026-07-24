@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, shared, ... }:
 {
   home.packages = with pkgs; [
     wl-clipboard
@@ -7,6 +7,7 @@
   ];
   wayland.windowManager.hyprland = {
     enable = true;
+    configType = "hyprlang";
     xwayland.enable = true;
     package = null;
     portalPackage = null;
@@ -33,7 +34,7 @@
       };
 
       dwindle = {
-        pseudotile = true;
+        # pseudotile = true;
         preserve_split = true;
         force_split = 2;
       };
@@ -72,7 +73,7 @@
 
       monitor = [
         "eDP-1, preferred, 0x0, 1"
-        ", preferred, auto, 1"
+        ", preferred, auto-up, auto"
       ];
     };
   };
