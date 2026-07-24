@@ -22,16 +22,24 @@
     plymouth.enable = true;
   };
 
-  # virtualisation.virtualbox = {
-  #   host = {
-  #     enable = true;
-  #     enableExtensionPack = true;
-  #   };
-  # };
+  virtualisation = {
+    # virtualbox = {
+    #   host = {
+    #     enable = true;
+    #     enableExtensionPack = true;
+    #   };
+    # };
 
-  # virtualisation.docker = {
-  #   enable = true;
-  # };
+    libvirtd = {
+      enable = true;
+      qemu.vhostUserPackages = [ pkgs.virtiofsd ];
+    };
+    spiceUSBRedirection.enable = true;
+
+    # docker.enable = true;
+  };
+
+  programs.virt-manager.enable = true;
 
   services.usbmuxd.enable = true;
 
@@ -49,6 +57,7 @@
       description = "daniel";
       extraGroups = [
         "docker"
+        "libvirtd"
         "networkmanager"
         "wheel"
         "vboxusers"
@@ -90,6 +99,7 @@
   # };
 
   programs.firefox.enable = true;
+  programs.java.enable = true;
 
   programs.nix-ld = {
     enable = true;
