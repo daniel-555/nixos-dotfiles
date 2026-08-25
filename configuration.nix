@@ -23,23 +23,23 @@
   };
 
   virtualisation = {
-    # virtualbox = {
-    #   host = {
-    #     enable = true;
-    #     enableExtensionPack = true;
-    #   };
-    # };
-
-    libvirtd = {
-      enable = true;
-      qemu.vhostUserPackages = [ pkgs.virtiofsd ];
+    virtualbox = {
+      host = {
+        enable = true;
+        enableExtensionPack = true;
+      };
     };
-    spiceUSBRedirection.enable = true;
+
+    # libvirtd = {
+    #   enable = true;
+    #   qemu.vhostUserPackages = [ pkgs.virtiofsd ];
+    # };
+    # spiceUSBRedirection.enable = true;
 
     # docker.enable = true;
   };
 
-  programs.virt-manager.enable = true;
+  # programs.virt-manager.enable = true;
 
   services.usbmuxd.enable = true;
 
