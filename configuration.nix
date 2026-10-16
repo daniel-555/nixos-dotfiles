@@ -43,6 +43,11 @@
 
   services.usbmuxd.enable = true;
 
+  # services.openssh = {
+  #   enable = true;
+  #   openFirewall = true;
+  # };
+
   networking.hostName = "${host}";
   networking.networkmanager.enable = true;
 

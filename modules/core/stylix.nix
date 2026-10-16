@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, host, ... }:
 {
   stylix = {
     enable = true;
@@ -36,6 +36,14 @@
       plymouth.enable = false;
       qt.enable = false;
     };
-    image = ../../wallpapers/retrowave-sunset.jpg;
+    image =
+      let
+        bg = {
+          "home" = ../../wallpapers/Rainnight.jpg;
+          "work" = ../../wallpapers/retrowave-sunset.jpg;
+        };
+        default = ../../wallpapers/Rainnight.jpg;
+      in
+      bg.${host} or default;
   };
 }

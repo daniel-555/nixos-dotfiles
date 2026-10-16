@@ -56,10 +56,17 @@
     };
 
     colorschemes.onedark = {
-      enable = true;
+      enable = false;
       settings = {
         style = "deep";
-        transparent = true;
+        transparent = false;
+      };
+    };
+
+    colorschemes.tokyonight = {
+      enable = true;
+      settings = {
+        style = "night";
       };
     };
 
@@ -152,7 +159,7 @@
 
           snippets.preset = "luasnip";
           fuzzy.implementation = "prefer_rust_with_warning";
-          # signature.enabled = true;
+          signature.enabled = true;
         };
       };
 
