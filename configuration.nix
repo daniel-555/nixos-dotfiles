@@ -36,7 +36,7 @@
     # };
     # spiceUSBRedirection.enable = true;
 
-    # docker.enable = true;
+    docker.enable = true;
   };
 
   # programs.virt-manager.enable = true;
@@ -125,6 +125,7 @@
     git
     vim
     wget
+    docker-compose
 
     # c / c++
     gcc
