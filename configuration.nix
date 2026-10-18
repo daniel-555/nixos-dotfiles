@@ -25,7 +25,7 @@
 
   virtualisation = {
     virtualbox =
-      lib.mkIf host != "mac" {
+      lib.mkIf (host != "mac") {
         host = {
           enable = true;
           enableExtensionPack = true;
