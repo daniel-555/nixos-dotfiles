@@ -14,5 +14,6 @@
   hardware.asahi = {
     enable = true;
     peripheralFirmwareDirectory = ./vendorfw;
+    avd.enable = false;
   };
 }
