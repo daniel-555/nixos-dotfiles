@@ -4,7 +4,7 @@
     ./apple-silicon-support
   ];
 
-  boot.efi.canTouchEfiVariables = lib.mkForce false;
+  boot.loader.efi.canTouchEfiVariables = lib.mkForce false;
   networking.networkmanager.wifi.backend = lib.mkForce "iwd";
 
   hardware.asahi = {
