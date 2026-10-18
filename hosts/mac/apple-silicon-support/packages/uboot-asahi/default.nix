@@ -7,13 +7,12 @@
 
 (buildUBoot rec {
   src = fetchFromGitHub {
-    # tracking: https://pagure.io/fedora-asahi/uboot-tools/commits/main
     owner = "AsahiLinux";
     repo = "u-boot";
-    rev = "asahi-v2025.07-1";
-    hash = "sha256-WGpMd3ub+m0xWevPreYrLWpoQSz9sr1YmeOiU7kgPGs=";
+    rev = "asahi-v2026.07-2";
+    hash = "sha256-9E79VceZcPw55zj6BBwgIBP/2OrHRS/w3ypGyOWfE6U=";
   };
-  version = "2025.07-1-asahi";
+  version = "2026.07-2-asahi";
 
   defconfig = "apple_m1_defconfig";
   extraMeta.platforms = [ "aarch64-linux" ];
@@ -34,9 +33,6 @@
     # nixos's downstream patches are not applicable
     patches = [
     ];
-
-    # DTC= flag somehow breaks DTC compilation so we remove it
-    makeFlags = builtins.filter (s: (!(lib.strings.hasPrefix "DTC=" s))) o.makeFlags;
 
     preInstall = ''
       # compress so that m1n1 knows U-Boot's size and can find things after it
