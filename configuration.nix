@@ -1,6 +1,7 @@
 {
   inputs,
   host,
+  lib,
   pkgs,
   config,
   ...
@@ -23,12 +24,13 @@
   };
 
   virtualisation = {
-    virtualbox = {
-      host = {
-        enable = true;
-        enableExtensionPack = true;
+    virtualbox =
+      lib.mkIf host != "mac" {
+        host = {
+          enable = true;
+          enableExtensionPack = true;
+        };
       };
-    };
 
     # libvirtd = {
     #   enable = true;
