@@ -48,7 +48,8 @@
                 extraSpecialArgs = { inherit inputs; };
               };
             }
-          ];
+          ]
+          ++ (if host == "mac" then [ apple-silicon.nixosModules.apple-silicon-support ] else [ ]);
         };
 
     in
