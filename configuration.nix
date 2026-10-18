@@ -155,5 +155,4 @@
   programs.ssh.agentTimeout = "1h";
 
   system.stateVersion = "26.05";
-
 }
