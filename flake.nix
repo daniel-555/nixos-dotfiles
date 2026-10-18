@@ -21,9 +21,10 @@
     }@inputs:
     let
       mkConfig =
-        host:
+        host: system:
         nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
+          inherit system;
+
           specialArgs = {
             inherit inputs;
             inherit host;
@@ -47,8 +48,9 @@
     in
     {
       nixosConfigurations = {
-        home = mkConfig "home";
-        work = mkConfig "work";
+        home = mkConfig "home" "x86_64-linux";
+        work = mkConfig "work" "x86_64-linux";
+        mac = mkConfig "mac" "aarch64-linux";
       };
     };
 }
