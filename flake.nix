@@ -6,6 +6,11 @@
     stylix.url = "github:danth/stylix/release-26.05";
     nixvim.url = "github:nix-community/nixvim/nixos-26.05";
 
+    apple-silicon = {
+      url = "github:nix-community/nixos-apple-silicon";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     home-manager = {
       url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -17,6 +22,7 @@
       self,
       nixpkgs,
       home-manager,
+      apple-silicon,
       ...
     }@inputs:
     let

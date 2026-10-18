@@ -1,7 +1,13 @@
-{ pkgs, lib, ... }: {
+{
+  pkgs,
+  lib,
+  apple-silicon,
+  ...
+}:
+{
   imports = [
     ./hardware-configuration.nix
-    ./apple-silicon-support
+    apple-silicon.nixosModules.apple-silicon-support
   ];
 
   boot.loader.efi.canTouchEfiVariables = lib.mkForce false;
