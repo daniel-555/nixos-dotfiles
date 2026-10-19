@@ -24,13 +24,12 @@
   };
 
   virtualisation = {
-    virtualbox =
-      lib.mkIf (host != "mac") {
-        host = {
-          enable = true;
-          enableExtensionPack = true;
-        };
+    virtualbox = lib.mkIf (host != "mac") {
+      host = {
+        enable = true;
+        enableExtensionPack = true;
       };
+    };
 
     # libvirtd = {
     #   enable = true;
@@ -128,6 +127,7 @@
     vim
     wget
     docker-compose
+    unzip
 
     # c / c++
     gcc
