@@ -41,6 +41,7 @@
         bg = {
           "home" = ../../wallpapers/Rainnight.jpg;
           "work" = ../../wallpapers/retrowave-sunset.jpg;
+          "mac" = ../../wallpapers/abstract-sphere.png;
         };
         default = ../../wallpapers/Rainnight.jpg;
       in
