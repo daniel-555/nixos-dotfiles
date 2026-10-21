@@ -63,6 +63,7 @@
       description = "daniel";
       extraGroups = [
         "docker"
+        "dialout"
         "libvirtd"
         "networkmanager"
         "wheel"
