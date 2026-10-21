@@ -27,6 +27,7 @@
 
     settings = {
       confirm_os_window_close = 0;
+      remember_window_size = "no";
       enable_audio_bell = "no";
       cursor_trail = 1;
       font_size = 15;
