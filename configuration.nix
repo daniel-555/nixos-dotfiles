@@ -52,6 +52,11 @@
   networking.hostName = "${host}";
   networking.networkmanager.enable = true;
 
+  security.pki.caCertificateBlacklist = [
+    "Comodo AAA Services root"
+    "emSign ECC Root CA - G3"
+  ];
+
   time.timeZone = "Europe/London";
 
   i18n.defaultLocale = "en_GB.UTF-8";
