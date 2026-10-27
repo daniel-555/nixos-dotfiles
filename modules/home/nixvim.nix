@@ -178,6 +178,7 @@
           html.enable = true;
           cssls.enable = true;
           clangd.enable = true;
+          cmake.enable = true;
           emmet_language_server.enable = true;
           jdtls.enable = true;
           rust_analyzer = {
