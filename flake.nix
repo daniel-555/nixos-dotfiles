@@ -6,8 +6,8 @@
     stylix.url = "github:danth/stylix/release-26.05";
     nixvim.url = "github:nix-community/nixvim/nixos-26.05";
 
-    apple-silicon = {
-      url = "github:nix-community/nixos-apple-silicon";
+    nixos-hardware = {
+      url = "github:nixos/nixos-hardware";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -22,7 +22,7 @@
       self,
       nixpkgs,
       home-manager,
-      apple-silicon,
+      nixos-hardware,
       ...
     }@inputs:
     let
@@ -37,6 +37,7 @@
           };
           modules = [
             ./configuration.nix
+
             home-manager.nixosModules.home-manager
             {
               home-manager = {
@@ -49,7 +50,7 @@
               };
             }
           ]
-          ++ (if host == "mac" then [ apple-silicon.nixosModules.apple-silicon-support ] else [ ]);
+          ++ (if host == "laptop" then [ nixos-hardware.nixosModules.lenovo-thinkpad-t480 ] else [ ]);
         };
 
     in
@@ -57,7 +58,7 @@
       nixosConfigurations = {
         home = mkConfig "home" "x86_64-linux";
         work = mkConfig "work" "x86_64-linux";
-        mac = mkConfig "mac" "aarch64-linux";
+        laptop = mkConfig "laptop" "x86_64-linux";
       };
     };
 }

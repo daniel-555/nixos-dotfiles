@@ -24,7 +24,7 @@
   };
 
   virtualisation = {
-    virtualbox = lib.mkIf (host != "mac") {
+    virtualbox = lib.mkIf (host != "laptop") {
       host = {
         enable = true;
         enableExtensionPack = true;
@@ -88,11 +88,11 @@
 
   hardware.bluetooth = {
     enable = true;
-    settings = {
-      General = {
-        ControllerMode = "bredr";
-      };
-    };
+    # settings = {
+    #   General = {
+    #     ControllerMode = "bredr";
+    #   };
+    # };
   };
 
   programs.hyprland = {
