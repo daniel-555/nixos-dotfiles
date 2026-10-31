@@ -4,6 +4,7 @@
     wl-clipboard
     hyprpicker
     hyprmon
+    brightnessctl
   ];
   wayland.windowManager.hyprland = {
     enable = true;

@@ -45,6 +45,9 @@
       "${shared.mod} SHIFT, 0, movetoworkspace, 10"
 
       "SUPER, L, exec, hyprlock"
+
+      ", XF86MonBrightnessUp, exec, brightnessctl set +5%"
+      ", XF86MonBrightnessDown, exec, brightnessctl set 5%-"
     ];
 
     bindm = [
