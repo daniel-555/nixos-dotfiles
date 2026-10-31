@@ -46,6 +46,13 @@
 
       "SUPER, L, exec, hyprlock"
 
+      # Audio Keybinds
+      ", XF86AudioRaiseVolume, exec, pactl set-sink-volume @DEFAULT_SINK@ +1000"
+      ", XF86AudioLowerVolume, exec, pactl set-sink-volume @DEFAULT_SINK@ -1000"
+      ", XF86AudioMute, exec, pactl set-sink-mute @DEFAULT_SINK@ toggle"
+      ", XF86AudioMicMute, exec, pactl set-source-mute @DEFAULT_SOURCE@ toggle"
+
+      # Monitor Keybinds
       ", XF86MonBrightnessUp, exec, brightnessctl set +5%"
       ", XF86MonBrightnessDown, exec, brightnessctl set 5%-"
     ];

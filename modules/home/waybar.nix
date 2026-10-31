@@ -10,7 +10,10 @@ in
 {
   # Configure & Theme Waybar
 
-  home.packages = with pkgs; [ pavucontrol ];
+  home.packages = with pkgs; [
+    pavucontrol
+    pulseaudio
+  ];
 
   programs.waybar = {
     enable = true;
@@ -92,8 +95,8 @@ in
         "pulseaudio" = {
           format = "{icon} {volume}% {format_source}";
           format-bluetooth = "{volume}% {icon} {format_source}";
-          format-bluetooth-muted = " {icon} {format_source}";
-          format-muted = " {format_source}";
+          format-bluetooth-muted = "   {icon} {format_source}";
+          format-muted = "   {format_source}";
           format-source = " {volume}%";
           format-source-muted = "";
           format-icons = {
