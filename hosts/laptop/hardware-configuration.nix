@@ -20,16 +20,16 @@
 
   boot.initrd.luks.devices."luks-32c4a703-b70f-4da4-867d-5c65c8f6e2a9".device = "/dev/disk/by-uuid/32c4a703-b70f-4da4-867d-5c65c8f6e2a9";
 
-  fileSystems."/home" =
-    { device = "/dev/mapper/luks-32c4a703-b70f-4da4-867d-5c65c8f6e2a9";
-      fsType = "btrfs";
-      options = [ "subvol=home" ];
-    };
-
   fileSystems."/nix" =
     { device = "/dev/mapper/luks-32c4a703-b70f-4da4-867d-5c65c8f6e2a9";
       fsType = "btrfs";
       options = [ "subvol=nix" ];
+    };
+
+  fileSystems."/home" =
+    { device = "/dev/mapper/luks-32c4a703-b70f-4da4-867d-5c65c8f6e2a9";
+      fsType = "btrfs";
+      options = [ "subvol=home" ];
     };
 
   fileSystems."/boot" =
@@ -38,9 +38,7 @@
       options = [ "fmask=0077" "dmask=0077" ];
     };
 
-  swapDevices =
-    [ { device = "/dev/mapper/luks-0efcd203-96b6-4417-a577-0e12bb9080c0"; }
-    ];
+  swapDevices = [ ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;

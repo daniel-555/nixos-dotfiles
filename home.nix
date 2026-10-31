@@ -20,8 +20,6 @@
 
   fonts.fontconfig.enable = true;
 
-  services.kanshi.enable = true;
-
   programs.kitty = {
     enable = true;
 

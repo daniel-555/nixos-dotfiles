@@ -88,11 +88,11 @@
 
   hardware.bluetooth = {
     enable = true;
-    # settings = {
-    #   General = {
-    #     ControllerMode = "bredr";
-    #   };
-    # };
+    settings = {
+      General = {
+        ControllerMode = "bredr";
+      };
+    };
   };
 
   programs.hyprland = {
